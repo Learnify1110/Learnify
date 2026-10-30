@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Learnify</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+
+        /* ==============================
+           RESET
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ==============================
+           MAIN CONTAINER
+        ============================== */
+
+        .login-page {
+            min-height: 100vh;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            background: #f8fafc;
+        }
+
+
+        /* ==============================
+           LEFT SIDE
+        ============================== */
+
+        .left-section {
+            position: relative;
+
+            min-height: 100vh;
+
+            padding: 45px 8%;
+
+            overflow: hidden;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #312e81 0%,
+                    #4f46e5 45%,
+                    #7c3aed 100%
+                );
+        }
+
+
+        /* Decorative circles */
+
+        .circle {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(1px);
+
+            opacity: 0.15;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+
+            background: #ffffff;
+
+            top: -120px;
+            right: -80px;
+        }
+
+        .circle-2 {
+            width: 220px;
+            height: 220px;
+
+            background: #c4b5fd;
+
+            bottom: -80px;
+            left: -80px;
+        }
+
+        .circle-3 {
+            width: 120px;
+            height: 120px;
+
+            background: #ffffff;
+
+            top: 45%;
+            right: 15%;
+        }
+
+
+        /* ==============================
+           LOGO
+        ============================== */
+
+        .logo {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,0.15);
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+
+        /* ==============================
+           LEFT CONTENT
+        ============================== */
+
+        .left-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 600px;
+
+            margin-top: 18vh;
+        }
+
+        .small-tag {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.12);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 12px;
+            font-weight: 600;
+
+            margin-bottom: 25px;
+        }
+
+        .small-tag i {
+            color: #fde68a;
+        }
+
+        .left-content h1 {
+            font-size: clamp(42px, 5vw, 68px);
+
+            line-height: 1.04;
+
+            letter-spacing: -2.5px;
+
+            margin-bottom: 25px;
+        }
+
+        .left-content h1 span {
+            color: #c4b5fd;
+        }
+
+        .left-content > p {
+            max-width: 500px;
+
+            color: #e0e7ff;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* ==============================
+           FEATURES
+        ============================== */
+
+        .features {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .feature {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            color: #eef2ff;
+
+            font-size: 14px;
+        }
+
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.12);
+
+            color: #c4b5fd;
+
+            font-size: 12px;
+        }
+
+
+        /* ==============================
+           RIGHT SIDE
+        ============================== */
+
+        .right-section {
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    #eef2ff,
+                    transparent 35%
+                ),
+                #f8fafc;
+        }
+
+
+        /* ==============================
+           LOGIN CARD
+        ============================== */
+
+        .login-card {
+            width: 100%;
+            max-width: 440px;
+
+            padding: 42px;
+
+            background: rgba(255,255,255,0.95);
+
+            border: 1px solid rgba(226,232,240,0.9);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 25px 70px rgba(15,23,42,0.10);
+
+            animation: cardAppear 0.7s ease;
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ==============================
+           CARD HEADER
+        ============================== */
+
+        .mobile-logo {
+            display: none;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color: #4f46e5;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            margin-bottom: 30px;
+        }
+
+        .mobile-logo i {
+            font-size: 25px;
+        }
+
+        .back-home {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 35px;
+
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            color: #4f46e5;
+        }
+
+        .card-header {
+            margin-bottom: 30px;
+        }
+
+        .card-header h2 {
+            color: #0f172a;
+
+            font-size: 32px;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 8px;
+        }
+
+        .card-header p {
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ==============================
+           INPUT
+        ============================== */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 8px;
+        }
+
+        .form-label label {
+            color: #334155;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .forgot-password {
+            color: #4f46e5;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container > i {
+            position: absolute;
+
+            left: 16px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #94a3b8;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .input-container input {
+            width: 100%;
+
+            height: 52px;
+
+            padding: 0 48px;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 11px;
+
+            background: #f8fafc;
+
+            color: #0f172a;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .input-container input::placeholder {
+            color: #94a3b8;
+        }
+
+        .input-container input:focus {
+            background: white;
+
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 4px rgba(99,102,241,0.1);
+        }
+
+        .input-container input:focus + .input-icon {
+            color: #4f46e5;
+        }
+
+
+        /* ==============================
+           PASSWORD BUTTON
+        ============================== */
+
+        .password-toggle {
+            position: absolute;
+
+            right: 14px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: transparent;
+
+            border: none;
+
+            color: #94a3b8;
+
+            cursor: pointer;
+
+            font-size: 15px;
+        }
+
+        .password-toggle:hover {
+            color: #4f46e5;
+        }
+
+
+        /* ==============================
+           REMEMBER
+        ============================== */
+
+        .remember-row {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin: 5px 0 22px;
+        }
+
+        .remember {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            cursor: pointer;
+        }
+
+        .remember input {
+            width: 15px;
+            height: 15px;
+
+            accent-color: #4f46e5;
+
+            cursor: pointer;
+        }
+
+
+        /* ==============================
+           LOGIN BUTTON
+        ============================== */
+
+        .login-btn {
+            width: 100%;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #7c3aed
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(79,70,229,0.25);
+
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 30px rgba(79,70,229,0.35);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+
+        /* ==============================
+           DIVIDER
+        ============================== */
+
+        .divider {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin: 27px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #e2e8f0;
+        }
+
+        .divider span {
+            color: #94a3b8;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+
+        /* ==============================
+           GOOGLE BUTTON
+        ============================== */
+
+        .google-btn {
+            width: 100%;
+
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 11px;
+
+            background: white;
+
+            color: #334155;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .google-btn:hover {
+            background: #f8fafc;
+
+            border-color: #cbd5e1;
+
+            transform: translateY(-1px);
+        }
+
+        .google-btn i {
+            color: #ea4335;
+
+            font-size: 16px;
+        }
+
+
+        /* ==============================
+           REGISTER
+        ============================== */
+
+        .register-text {
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-top: 25px;
+        }
+
+        .register-text a {
+            color: #4f46e5;
+
+            font-weight: 700;
+        }
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 950px) {
+
+
+            .login-page {
+                grid-template-columns: 1fr;
+            }
+
+            .left-section {
+                display: none;
+            }
+
+            .right-section {
+                min-height: 100vh;
+
+                padding: 30px 20px;
+            }
+
+            .mobile-logo {
+                display: flex;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .right-section {
+                padding: 20px 15px;
+            }
+
+            .login-card {
+                padding: 28px 22px;
+
+                border-radius: 18px;
+
+                box-shadow: none;
+
+                border: none;
+            }
+
+            .back-home {
+                margin-bottom: 25px;
+            }
+
+            .card-header h2 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="login-page">
+
+
+        <!-- =====================================
+             LEFT SECTION
+        ====================================== -->
+
+        <section class="left-section">
+
+            <!-- Decorative shapes -->
+
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <span>Learnify</span>
+
+            </div>
+
+
+            <!-- Content -->
+
+            <div class="left-content">
+
+                <div class="small-tag">
+                    <i class="fa-solid fa-sparkles"></i>
+                    Your learning journey starts here
+                </div>
+
+
+                <h1>
+                    Unlock your
+                    <span>potential.</span>
+                </h1>
+
+
+                <p>
+                    Learn new skills, build your knowledge,
+                    and take your career to the next level
+                    with Learnify.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+
+                        <span>
+                            Learn from expert instructors
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+
+                        <span>
+                            Track your learning progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+
+                        <span>
+                            Earn certificates
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             RIGHT SECTION
+        ====================================== -->
+
+        <section class="right-section">
+
+
+            <div class="login-card">
+
+
+                <!-- Mobile Logo -->
+
+                <div class="mobile-logo">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <span>Learnify</span>
+
+                </div>
+
+
+                <!-- Back -->
+
+                <a href="index.html" class="back-home">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back to Home
+
+                </a>
+
+
+                <!-- Header -->
+
+                <div class="card-header">
+
+                    <h2>
+                        Welcome back 👋
+                    </h2>
+
+                    <p>
+                        Enter your details to access
+                        your Learnify account.
+                    </p>
+
+                </div>
+
+
+                <!-- Form -->
+
+                <form id="loginForm">
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <div class="form-label">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                        </div>
+
+
+                        <div class="input-container">
+
+                            <i class="fa-regular fa-envelope input-icon"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <div class="form-label">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                           <a
+    href="forgot-password.html"
+    class="forgot-password"
+>
+    Forgot Password?
+</a>
+
+
+                        </div>
+
+
+                        <div class="input-container">
+
+                            <i class="fa-solid fa-lock input-icon"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword()"
+                            >
+
+                                <i
+                                    id="eyeIcon"
+                                    class="fa-regular fa-eye"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Remember -->
+
+                    <div class="remember-row">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="remember"
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- Login -->
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+
+                       <span>Login to Account</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+<div style="text-align: center; margin-top: 20px;">
+</div>
+
+                <!-- Divider -->
+
+                <div class="divider">
+
+                    <span>OR CONTINUE WITH</span>
+
+                </div>
+
+
+
+                <!-- Google -->
+
+                <button
+                    class="google-btn"
+                    onclick="googleLogin()"
+                >
+
+                    <i class="fa-brands fa-google"></i>
+
+                    Continue with Google
+
+                </button>
+
+
+
+                <!-- Register -->
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create one
+                    </a>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>    
+<script>
+
+        /* ===============================
+           PASSWORD TOGGLE
+        =============================== */
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const eyeIcon =
+                document.getElementById("eyeIcon");
+
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                eyeIcon.classList.remove("fa-eye");
+
+                eyeIcon.classList.add("fa-eye-slash");
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                eyeIcon.classList.remove("fa-eye-slash");
+
+                eyeIcon.classList.add("fa-eye");
+
+            }
+
+        }
+
+
+
+        /* ===============================
+   LOGIN WITH BACKEND
+================================ */
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const email = document
+            .getElementById("email")
+            .value
+            .trim()
+            .toLowerCase();
+
+        const password = document
+            .getElementById("password")
+            .value;
+
+        if (!email || !password) {
+            alert("Please enter your email and password.");
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                "http://localhost:5000/api/auth/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                alert(data.message || "Login failed. Please try again.");
+                return;
+            }
+
+            // Save the login token and user information
+            localStorage.setItem("learnifyToken", data.token);
+            localStorage.setItem(
+                "learnifyUser",
+                JSON.stringify(data.user)
+            );
+
+            alert("Login successful! 🎉");
+
+            // Dashboard will open after successful login
+            window.location.href = "dashboard.html";
+
+        } catch (error) {
+            console.error("Login error:", error);
+            alert(
+                "Cannot connect to the server. Please make sure the backend is running."
+            );
+        }
+    });
+           
+    /* ===============================
+   GOOGLE LOGIN
+=============================== */
+function googleLogin() {
+    if (!window.google || !window.google.accounts) {
+        alert("Google is loading. Please try again in a moment.");
+        return;
+    }
+
+    google.accounts.id.prompt();
+}
+function handleGoogleCredential(response) {
+       alert("Google callback received!");
+    fetch("http://localhost:5000/api/auth/google", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            credential: response.credential
+        })
+    })
+    .then(async (res) => {
+        const data = await res.json();
+
+        if (!res.ok) {
+            throw new Error(data.message || "Google login failed.");
+        }
+
+        localStorage.setItem("learnifyToken", data.token);
+        localStorage.setItem("learnifyUser", JSON.stringify(data.user));
+
+        window.location.href = "dashboard.html";
+    })
+    .catch((error) => {
+        alert(error.message || "Google login failed. Please try again.");
+    });
+}
+function initializeGoogleLogin() {
+    if (!window.google || !window.google.accounts) {
+        setTimeout(initializeGoogleLogin, 300);
+        return;
+    }
+
+    const buttonContainer = document.getElementById("googleSignInButton");
+
+    if (!buttonContainer) {
+        console.error("Google button container not found!");
+        return;
+    }
+
+    google.accounts.id.initialize({
+        client_id: "791283609174-decu7qecu1j9880lin7ns98mnvgmideo.apps.googleusercontent.com",
+        callback: handleGoogleCredential
+    });
+
+    google.accounts.id.renderButton(buttonContainer, {
+        theme: "outline",
+        size: "large",
+        text: "continue_with",
+        shape: "rectangular",
+        width: 280
+    });
+}
+
+initializeGoogleLogin();
+
+        /* ===============================
+           FORGOT PASSWORD
+        =============================== */
+
+     function forgotPassword(event) {
+    event.preventDefault();
+    window.location.href = "forgot-password.html";
+}
+
+    </script>
+
+</body>
+
+</html>

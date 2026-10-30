@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Marketing | Learnify</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f7fc;
+            color: #222;
+        }
+/* ================= NAVBAR ================= */
+
+nav {
+    height: 75px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1000;
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #4f46d8;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    font-size: 23px;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4f46d8;
+}
+
+/* LOGIN BUTTON */
+
+.login {
+    text-decoration: none;
+    background: #4f46d8;
+    color: white !important;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.login:hover {
+    background: #3730a3;
+    transform: translateY(-1px);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 850px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    nav {
+        height: auto;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+}
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: linear-gradient(135deg, #4f46d8, #7068e8);
+            color: white;
+            padding: 65px 7%;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            font-size: 17px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .rating {
+            margin-top: 22px;
+            font-size: 15px;
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            width: 86%;
+            max-width: 1150px;
+            margin: 45px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* ================= CONTENT CARDS ================= */
+
+        .content-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .content-card h2 {
+            color: #4f46d8;
+            margin-bottom: 18px;
+            font-size: 24px;
+        }
+
+        .content-card p {
+            line-height: 1.8;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* ================= LEARN LIST ================= */
+
+        .learn-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+            margin-top: 15px;
+        }
+
+        .learn-list div {
+            background: #f6f5ff;
+            padding: 14px;
+            border-radius: 10px;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .learn-list div::before {
+            content: "✓";
+            color: #4f46d8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* ================= CURRICULUM ================= */
+
+        .lesson {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 17px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .lesson:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+        }
+
+        .lesson-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #4f46d8;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .lesson-time {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* ================= PROJECT ================= */
+
+        .project-box {
+            background: linear-gradient(135deg, #f1efff, #fafaff);
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 5px solid #4f46d8;
+        }
+
+        .project-box h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .project-box p {
+            font-size: 14px;
+        }
+
+        /* ================= INSTRUCTOR ================= */
+
+        .instructor {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .instructor-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #4f46d8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .instructor h3 {
+            margin-bottom: 5px;
+        }
+
+        .instructor p {
+            font-size: 14px;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            position: sticky;
+            top: 25px;
+            height: fit-content;
+        }
+
+        .enroll-card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .course-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background: #f0efff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        .enroll-card h2 {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #4f46d8;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .enroll-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46d8;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .enroll-btn:hover {
+            background: #3d35b8;
+            transform: translateY(-2px);
+        }
+
+        .course-info {
+            margin-top: 22px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .info-row span:first-child {
+            color: #666;
+        }
+
+        .info-row span:last-child {
+            font-weight: 600;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #17182b;
+            color: white;
+            padding: 30px 7%;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .main {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding: 45px 6%;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .main {
+                width: 92%;
+                margin: 30px auto;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .learn-list {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson {
+                gap: 10px;
+            }
+
+            .lesson-time {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+  <nav>
+
+    <a href="index.html" class="logo">
+        <span class="logo-icon">🎓</span>
+        Learnify
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="courses.html">Courses</a>
+
+        <a href="courses.html">Categories</a>
+
+        <a href="index.html#about">About</a>
+
+        <a href="index.html#contact">Contact</a>
+
+       </div>
+
+    <a href="login.html" class="login">
+        Login
+    </a>
+
+</nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="tag">BUSINESS & MARKETING</span>
+
+            <h1>Digital Marketing</h1>
+
+            <p>
+                Learn how to promote brands, products and businesses through
+                digital platforms. Master social media marketing, SEO,
+                content marketing, email marketing, online advertising and
+                modern digital marketing strategies.
+            </p>
+
+            <div class="rating">
+                ⭐ 4.8 &nbsp; • &nbsp; 14 Hours &nbsp; • &nbsp; Beginner Friendly
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <div class="left-content">
+
+
+            <!-- COURSE OVERVIEW -->
+
+            <section class="content-card">
+
+                <h2>Course Overview</h2>
+
+                <p>
+                    The Digital Marketing course is designed to introduce
+                    learners to the modern world of online marketing.
+                    You will understand how businesses use digital platforms
+                    to reach customers, build their brand and increase
+                    online visibility.
+                </p>
+
+                <br>
+
+                <p>
+                    The course covers important areas such as Search Engine
+                    Optimization, social media marketing, content creation,
+                    email marketing, paid advertising and analytics. You will
+                    also learn how to create effective digital campaigns and
+                    measure their performance.
+                </p>
+
+            </section>
+
+
+            <!-- WHAT YOU WILL LEARN -->
+
+            <section class="content-card">
+
+                <h2>What You'll Learn</h2>
+
+                <div class="learn-list">
+
+                    <div>Digital Marketing Fundamentals</div>
+
+                    <div>Search Engine Optimization (SEO)</div>
+
+                    <div>Social Media Marketing</div>
+
+                    <div>Content Marketing</div>
+
+                    <div>Email Marketing</div>
+
+                    <div>Google Ads & Online Advertising</div>
+
+                    <div>Social Media Advertising</div>
+
+                    <div>Marketing Analytics</div>
+
+                    <div>Brand Building Strategies</div>
+
+                    <div>Digital Marketing Campaigns</div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CURRICULUM -->
+
+            <section class="content-card">
+
+                <h2>Course Curriculum</h2>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">1</span>
+                        Introduction to Digital Marketing
+                    </div>
+
+                    <span class="lesson-time">1h 30m</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">2</span>
+                        Digital Marketing Strategy
+                    </div>
+
+                    <span class="lesson-time">1h 30m</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">3</span>
+                        Search Engine Optimization (SEO)
+                    </div>
+
+                    <span class="lesson-time">2h</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">4</span>
+                        Social Media Marketing
+                    </div>
+
+                    <span class="lesson-time">2h</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">5</span>
+                        Content & Email Marketing
+                    </div>
+
+                    <span class="lesson-time">2h</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">6</span>
+                        Google Ads & Paid Campaigns
+                    </div>
+
+                    <span class="lesson-time">2h</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">7</span>
+                        Analytics & Performance Tracking
+                    </div>
+
+                    <span class="lesson-time">1h 30m</span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <div class="lesson-name">
+                        <span class="lesson-number">8</span>
+                        Final Digital Marketing Campaign
+                    </div>
+
+                    <span class="lesson-time">1h 30m</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRACTICAL PROJECT -->
+
+            <section class="content-card">
+
+                <h2>Practical Digital Marketing Project</h2>
+
+                <div class="project-box">
+
+                    <h3>📈 Create Your Own Digital Marketing Campaign</h3>
+
+                    <p>
+                        Apply everything you learn by creating a complete
+                        digital marketing campaign for a fictional brand
+                        or business. You will define the target audience,
+                        create content, plan social media activities,
+                        develop an SEO strategy and analyze campaign
+                        performance.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- INSTRUCTOR -->
+
+            <section class="content-card">
+
+                <h2>Instructor</h2>
+
+                <div class="instructor">
+
+                    <div class="instructor-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <h3>Learnify Digital Marketing Instructor</h3>
+
+                        <p>
+                            Experienced instructor focused on digital
+                            marketing strategies, online branding,
+                            social media and performance marketing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="enroll-card">
+
+                <div class="course-icon">
+                    📈
+                </div>
+
+                <h2>Digital Marketing</h2>
+
+                <div class="price">Free</div>
+
+              <button class="enroll-btn" onclick="enrollCourse('Digital Marketing')">
+    Enroll Now
+</button>
+
+
+                <div class="course-info">
+
+                    <div class="info-row">
+                        <span>Duration</span>
+                        <span>14 Hours</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Lessons</span>
+                        <span>8 Modules</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Certificate</span>
+                        <span>Yes</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Access</span>
+                        <span>Lifetime</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span>Level</span>
+                        <span>Beginner</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Learnify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+     function enrollCourse(courseName) {
+
+    const user = localStorage.getItem("learnifyUser");
+
+    if (!user) {
+
+        localStorage.setItem(
+            "pendingCourse",
+            courseName
+        );
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+
+    let enrolledCourses =
+        JSON.parse(
+            localStorage.getItem("learnifyCourses")
+        ) || [];
+
+
+    if (!enrolledCourses.includes(courseName)) {
+
+        enrolledCourses.push(courseName);
+
+        localStorage.setItem(
+            "learnifyCourses",
+            JSON.stringify(enrolledCourses)
+        );
+
+        alert(
+            "🎉 Congratulations!\n\n" +
+            "You are now enrolled in " +
+            courseName + "!"
+        );
+
+    } else {
+
+        alert(
+            "You are already enrolled in " +
+            courseName + "!"
+        );
+
+    }
+
+}
+    </script>
+
+</body>
+</html>

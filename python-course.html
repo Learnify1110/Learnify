@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Programming | Learnify</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7fc;
+            color: #202124;
+        }
+
+       /* ================= NAVBAR ================= */
+
+nav {
+    height: 75px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1000;
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #4f46d8;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    font-size: 23px;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4f46d8;
+}
+
+/* LOGIN BUTTON */
+
+.login {
+    text-decoration: none;
+    background: #4f46d8;
+    color: white !important;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.login:hover {
+    background: #3730a3;
+    transform: translateY(-1px);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 850px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    nav {
+        height: auto;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+}
+
+
+        /* ================= HERO ================= */
+
+        .course-hero {
+            background: linear-gradient(135deg, #4f46d8, #7068e8);
+            color: white;
+            padding: 70px 8%;
+        }
+
+        .course-hero-content {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .course-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .course-hero h1 {
+            font-size: 48px;
+            margin: 18px 0 15px;
+        }
+
+        .course-description {
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .rating {
+            margin-top: 22px;
+            font-size: 16px;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: 50px auto;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 35px;
+        }
+
+
+        /* ================= CONTENT BOX ================= */
+
+        .content-box {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(30,35,70,0.07);
+            margin-bottom: 25px;
+        }
+
+        .content-box h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        .content-box p {
+            color: #687287;
+            line-height: 1.7;
+        }
+
+
+        /* ================= LEARN LIST ================= */
+
+        .learn-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .learn-item {
+            color: #555;
+            padding: 10px 0;
+        }
+
+        .learn-item::before {
+            content: "✓";
+            color: #4f46d8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+
+        /* ================= CURRICULUM ================= */
+
+        .lesson {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 17px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .lesson-title {
+            font-weight: bold;
+        }
+
+        .lesson-time {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* ================= SIDEBAR ================= */
+
+        .enroll-card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(30,35,70,0.1);
+            position: sticky;
+            top: 25px;
+        }
+
+        .course-icon {
+            height: 150px;
+            background: #eeeefe;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 65px;
+            margin-bottom: 25px;
+        }
+
+        .price {
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .price-note {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .enroll-btn {
+            width: 100%;
+            border: none;
+            background: #4f46d8;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .enroll-btn:hover {
+            background: #3d36b7;
+        }
+
+        .course-features {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .course-feature {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #555;
+        }
+
+
+        /* ================= INSTRUCTOR ================= */
+
+        .instructor {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .instructor-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #eeeefe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .instructor h3 {
+            margin-bottom: 5px;
+        }
+
+        .instructor p {
+            font-size: 14px;
+        }
+
+
+        /* ================= PROJECT ================= */
+
+        .project-box {
+            background: linear-gradient(135deg, #f0efff, #fafaff);
+            border: 1px solid #e1dfff;
+        }
+
+        .project-box h2 {
+            color: #4f46d8;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #17182b;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 70px;
+        }
+
+        footer p {
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .enroll-card {
+                position: static;
+            }
+
+            .course-hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .course-hero {
+                padding: 50px 6%;
+            }
+
+            .course-hero h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .learn-list {
+                grid-template-columns: 1fr;
+            }
+
+            .content-box {
+                padding: 22px;
+            }
+
+            .lesson {
+                gap: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <a href="index.html" class="logo">
+        <span class="logo-icon">🎓</span>
+        Learnify
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="courses.html">
+            Courses
+        </a>
+
+        <a href="courses.html">
+            Categories
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+    </div>
+ <a href="login.html" class="login">
+        Login
+    </a>
+</nav>
+
+
+
+<!-- ================= COURSE HERO ================= -->
+
+<section class="course-hero">
+
+    <div class="course-hero-content">
+
+        <a href="courses.html" class="back-link">
+            ← Back to Courses
+        </a>
+
+        <span class="course-tag">
+            PROGRAMMING
+        </span>
+
+        <h1>
+            Python Programming
+        </h1>
+
+        <p class="course-description">
+            Learn Python from the basics and build a strong
+            foundation in programming, problem-solving and
+            real-world application development.
+        </p>
+
+        <div class="rating">
+            ⭐ 4.8 &nbsp; • &nbsp;
+            10 Hours &nbsp; • &nbsp;
+            Beginner Friendly
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<div class="container">
+
+    <div class="main-grid">
+
+
+        <!-- ================= LEFT CONTENT ================= -->
+
+        <div>
+
+
+            <!-- OVERVIEW -->
+
+            <div class="content-box">
+
+                <h2>
+                    Course Overview
+                </h2>
+
+                <p>
+                    Python is one of the most popular programming
+                    languages in the world. It is simple to learn,
+                    powerful and widely used in web development,
+                    automation, data science and artificial intelligence.
+                </p>
+
+                <br>
+
+                <p>
+                    This course is designed for beginners who want
+                    to start their programming journey with Python.
+                    You will learn programming concepts step-by-step
+                    through practical examples.
+                </p>
+
+            </div>
+
+
+
+            <!-- WHAT YOU WILL LEARN -->
+
+            <div class="content-box">
+
+                <h2>
+                    What You'll Learn
+                </h2>
+
+                <div class="learn-list">
+
+                    <div class="learn-item">
+                        Python fundamentals
+                    </div>
+
+                    <div class="learn-item">
+                        Variables & Data Types
+                    </div>
+
+                    <div class="learn-item">
+                        Conditional Statements
+                    </div>
+
+                    <div class="learn-item">
+                        Loops & Iterations
+                    </div>
+
+                    <div class="learn-item">
+                        Functions
+                    </div>
+
+                    <div class="learn-item">
+                        Lists & Dictionaries
+                    </div>
+
+                    <div class="learn-item">
+                        Object-Oriented Programming
+                    </div>
+
+                    <div class="learn-item">
+                        Error Handling
+                    </div>
+
+                    <div class="learn-item">
+                        File Handling
+                    </div>
+
+                    <div class="learn-item">
+                        Basic Python Projects
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CURRICULUM -->
+
+            <div class="content-box">
+
+                <h2>
+                    Course Curriculum
+                </h2>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        01. Introduction to Python
+                    </span>
+
+                    <span class="lesson-time">
+                        45 min
+                    </span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        02. Variables & Data Types
+                    </span>
+
+                    <span class="lesson-time">
+                        1 Hour
+                    </span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        03. Conditions & Loops
+                    </span>
+
+                    <span class="lesson-time">
+                        1.5 Hours
+                    </span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        04. Functions & Modules
+                    </span>
+
+                    <span class="lesson-time">
+                        1.5 Hours
+                    </span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        05. Lists, Tuples & Dictionaries
+                    </span>
+
+                    <span class="lesson-time">
+                        1.5 Hours
+                    </span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        06. Object-Oriented Programming
+                    </span>
+
+                    <span class="lesson-time">
+                        2 Hours
+                    </span>
+
+                </div>
+
+
+                <div class="lesson">
+
+                    <span class="lesson-title">
+                        07. Final Python Project
+                    </span>
+
+                    <span class="lesson-time">
+                        2 Hours
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRACTICAL PROJECT -->
+
+            <div class="content-box project-box">
+
+                <h2>
+                    🚀 Practical Project
+                </h2>
+
+                <p>
+                    At the end of this course, you will build a
+                    simple Python-based project that combines
+                    the concepts learned throughout the course.
+                </p>
+
+                <br>
+
+                <p>
+                    This project will help you understand how
+                    programming concepts are used to solve
+                    real-world problems.
+                </p>
+
+            </div>
+
+
+
+            <!-- INSTRUCTOR -->
+
+            <div class="content-box">
+
+                <h2>
+                    Instructor
+                </h2>
+
+                <div class="instructor">
+
+                    <div class="instructor-avatar">
+                        🐍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Learnify Instructor
+                        </h3>
+
+                        <p>
+                            Python Programming & Software Development
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ================= RIGHT SIDEBAR ================= -->
+
+        <aside>
+
+            <div class="enroll-card">
+
+                <div class="course-icon">
+                    🐍
+                </div>
+
+                <div class="price">
+                    Free
+                </div>
+
+                <div class="price-note">
+                    Start learning Python today
+                </div>
+
+              <button class="enroll-btn" onclick="enrollCourse('Python Programming')">
+    Enroll Now
+</button>
+
+
+                <div class="course-features">
+
+                    <div class="course-feature">
+                        <span>⏱ Duration</span>
+                        <strong>10 Hours</strong>
+                    </div>
+
+                    <div class="course-feature">
+                        <span>📚 Lessons</span>
+                        <strong>7</strong>
+                    </div>
+
+                    <div class="course-feature">
+                        <span>🎓 Certificate</span>
+                        <strong>Yes</strong>
+                    </div>
+
+                    <div class="course-feature">
+                        <span>📱 Access</span>
+                        <strong>Mobile</strong>
+                    </div>
+
+                    <div class="course-feature">
+                        <span>📊 Level</span>
+                        <strong>Beginner</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        🎓 Learnify
+    </h3>
+
+    <p>
+        Learn today. Lead tomorrow.
+    </p>
+
+    <p>
+        © 2026 Learnify. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+function enrollCourse(courseName) {
+
+    const user = localStorage.getItem("learnifyUser");
+
+    if (!user) {
+
+        localStorage.setItem(
+            "pendingCourse",
+            courseName
+        );
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+
+    let enrolledCourses =
+        JSON.parse(
+            localStorage.getItem("learnifyCourses")
+        ) || [];
+
+
+    if (!enrolledCourses.includes(courseName)) {
+
+        enrolledCourses.push(courseName);
+
+        localStorage.setItem(
+            "learnifyCourses",
+            JSON.stringify(enrolledCourses)
+        );
+
+        alert(
+            "🎉 Congratulations!\n\n" +
+            "You are now enrolled in " +
+            courseName + "!"
+        );
+
+    } else {
+
+        alert(
+            "You are already enrolled in " +
+            courseName + "!"
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

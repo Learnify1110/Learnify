@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learnify - Courses</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7fc;
+            color: #202124;
+        }
+
+        /* Navbar */
+        nav {
+            height: 75px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #4f46d8;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: #4f46d8;
+        }
+
+        .login-btn {
+            text-decoration: none;
+            color: #4f46d8;
+            font-weight: bold;
+        }
+
+        /* Hero */
+        .courses-hero {
+            text-align: center;
+            padding: 70px 20px 50px;
+        }
+
+        .courses-hero span {
+            color: #4f46d8;
+            font-weight: bold;
+        }
+
+        .courses-hero h1 {
+            font-size: 45px;
+            margin: 12px 0;
+        }
+
+        .courses-hero p {
+            color: #687287;
+            font-size: 17px;
+        }
+
+        /* Search */
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
+            display: flex;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px 0 0 12px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .search-box button {
+            border: none;
+            background: #4f46d8;
+            color: white;
+            padding: 0 25px;
+            border-radius: 0 12px 12px 0;
+            cursor: pointer;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 45px;
+        }
+
+        .category {
+            padding: 10px 18px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .category:hover {
+            background: #4f46d8;
+            color: white;
+        }
+
+        /* Courses */
+        .courses-container {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+        }
+
+        .section-heading p {
+            color: #687287;
+            margin-top: 7px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding-bottom: 80px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(30,35,70,0.08);
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(30,35,70,0.14);
+        }
+
+        .course-image {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eeeefe;
+            font-size: 55px;
+        }
+
+        .course-content {
+            padding: 22px;
+        }
+
+        .course-tag {
+            color: #4f46d8;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .course-content h3 {
+            margin: 10px 0;
+            font-size: 21px;
+        }
+
+        .course-content p {
+            color: #687287;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 18px 0;
+            color: #687287;
+            font-size: 14px;
+        }
+
+        .course-btn {
+            width: 100%;
+            border: none;
+            background: #4f46d8;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .course-btn:hover {
+            background: #3f38b5;
+        }
+
+        /* Footer */
+        footer {
+            background: #17182b;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer p {
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .courses-hero h1 {
+                font-size: 34px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+
+        <a href="index.html" style="text-decoration:none;">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                Learnify
+            </div>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html" class="active">Courses</a>
+            <a href="#">Categories</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="login.html" class="login">
+        Login
+    </a>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="courses-hero">
+
+        <span>LEARN SOMETHING NEW</span>
+
+        <h1>Explore Our Courses</h1>
+
+        <p>
+            Learn new skills, improve your knowledge and build your future
+            with Learnify.
+        </p>
+
+        <!-- Search -->
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for a course..."
+            >
+
+            <button onclick="searchCourses()">
+                🔍 Search
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <div class="categories">
+
+        <button class="category" onclick="filterCourses('all')">
+            All
+        </button>
+
+        <button class="category" onclick="filterCourses('programming')">
+            Programming
+        </button>
+
+        <button class="category" onclick="filterCourses('design')">
+            Design
+        </button>
+
+        <button class="category" onclick="filterCourses('technology')">
+            Technology
+        </button>
+
+        <button class="category" onclick="filterCourses('business')">
+            Business
+        </button>
+
+    </div>
+
+
+    <!-- Courses -->
+    <main class="courses-container">
+
+        <div class="section-heading">
+            <h2>Popular Courses</h2>
+            <p>Choose a course and start learning today.</p>
+        </div>
+
+
+        <div class="course-grid" id="courseGrid">
+
+
+            <!-- Web Development -->
+            <div class="course-card" data-category="programming">
+
+                <div class="course-image">
+                    💻
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-tag">
+                        PROGRAMMING
+                    </span>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Learn HTML, CSS and JavaScript and create
+                        modern responsive websites.
+                    </p>
+
+                    <div class="course-info">
+                        <span>⭐ 4.9</span>
+                        <span>12 Hours</span>
+                    </div>
+
+                   <button
+    class="course-btn"
+    onclick="window.location.href='course-details.html'">
+    View Course →
+</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Python -->
+            <div class="course-card" data-category="programming">
+
+                <div class="course-image">
+                    🐍
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-tag">
+                        PROGRAMMING
+                    </span>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        Learn Python from basics and understand
+                        programming concepts.
+                    </p>
+
+                    <div class="course-info">
+                        <span>⭐ 4.8</span>
+                        <span>10 Hours</span>
+                    </div>
+
+                    <button
+    class="course-btn"
+    onclick="window.location.href='python-course.html'">
+    View Course →
+</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- UI UX -->
+            <div class="course-card" data-category="design">
+
+                <div class="course-image">
+                    🎨
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-tag">
+                        DESIGN
+                    </span>
+
+                    <h3>
+                        UI/UX Design
+                    </h3>
+
+                    <p>
+                        Learn user interface and user experience
+                        design fundamentals.
+                    </p>
+
+                    <div class="course-info">
+                        <span>⭐ 4.9</span>
+                        <span>8 Hours</span>
+                    </div>
+
+                  <button
+    class="course-btn"
+    onclick="window.location.href='uiux-course.html'">
+    View Course →
+</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI -->
+            <div class="course-card" data-category="technology">
+
+                <div class="course-image">
+                    🤖
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-tag">
+                        TECHNOLOGY
+                    </span>
+
+                    <h3>
+                        AI & Data Science
+                    </h3>
+
+                    <p>
+                        Explore artificial intelligence, data and
+                        machine learning concepts.
+                    </p>
+
+                    <div class="course-info">
+                        <span>⭐ 4.7</span>
+                        <span>14 Hours</span>
+                    </div>
+<button
+    class="course-btn"
+    onclick="window.location.href='ai-data-science.html'">
+    View Course →
+</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- App Development -->
+            <div class="course-card" data-category="technology">
+
+                <div class="course-image">
+                    📱
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-tag">
+                        TECHNOLOGY
+                    </span>
+
+                    <h3>
+                        App Development
+                    </h3>
+
+                    <p>
+                        Discover how modern mobile applications
+                        are designed and developed.
+                    </p>
+
+                    <div class="course-info">
+                        <span>⭐ 4.8</span>
+                        <span>11 Hours</span>
+                    </div>
+
+                  <button
+    class="course-btn"
+    onclick="window.location.href='app-development.html'">
+    View Course →
+</button>
+                </div>
+
+            </div>
+
+
+            <!-- Digital Marketing -->
+            <div class="course-card" data-category="business">
+
+                <div class="course-image">
+                    📈
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-tag">
+                        BUSINESS
+                    </span>
+
+                    <h3>
+                        Digital Marketing
+                    </h3>
+
+                    <p>
+                        Learn social media, content creation and
+                        digital marketing basics.
+                    </p>
+
+                    <div class="course-info">
+                        <span>⭐ 4.8</span>
+                        <span>9 Hours</span>
+                    </div>
+<button
+    class="course-btn"
+    onclick="window.location.href='digital-marketing.html'">
+    View Course →
+</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>🎓 Learnify</h3>
+
+        <p>
+            Learn today. Lead tomorrow.
+        </p>
+
+        <p>
+            © 2026 Learnify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function filterCourses(category) {
+
+            const courses =
+                document.querySelectorAll(".course-card");
+
+            courses.forEach(course => {
+
+                if (
+                    category === "all" ||
+                    course.dataset.category === category
+                ) {
+
+                    course.style.display = "block";
+
+                } else {
+
+                    course.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        function searchCourses() {
+
+            const search =
+                document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+            const courses =
+                document.querySelectorAll(".course-card");
+
+            courses.forEach(course => {
+
+                const title =
+                    course
+                    .querySelector("h3")
+                    .innerText
+                    .toLowerCase();
+
+                if (title.includes(search)) {
+
+                    course.style.display = "block";
+
+                } else {
+
+                    course.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>

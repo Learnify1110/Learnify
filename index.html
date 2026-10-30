@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learnify - Online Learning Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+       <a href="index.html" class="logo">
+    <i class="fa-solid fa-graduation-cap"></i>
+    <span>Learnify</span>
+</a>
+
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+           <a href="courses.html">Courses</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+          <a href="login.html" class="login-btn">
+    Login
+</a>
+
+            <button class="register-btn" onclick="openRegister()">
+                Get Started
+            </button>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                🚀 Learn. Grow. Succeed.
+            </span>
+
+            <h1>
+                Learn Skills That
+                <span>Build Your Future</span>
+            </h1>
+
+            <p>
+                Learnify is an online learning platform where you can
+                learn programming, design, business and other valuable
+                skills from anywhere.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#courses" class="primary-btn">
+                    Explore Courses
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <button class="secondary-btn" onclick="showMessage()">
+                    <i class="fa-solid fa-play"></i>
+                    Watch Demo
+                </button>
+
+            </div>
+
+            <div class="students">
+
+                <div class="student-images">
+                    <div>👨🏻</div>
+                    <div>👩🏻</div>
+                    <div>👨🏽</div>
+                    <div>👩🏽</div>
+                </div>
+
+                <div>
+                    <strong>10,000+</strong>
+                    <p>Happy Students</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <div class="floating-card card-one">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <strong>Course Completed</strong>
+                    <small>JavaScript Masterclass</small>
+                </div>
+            </div>
+
+            <div class="learning-card">
+
+                <div class="circle">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <h3>Start Learning Today</h3>
+
+                <p>
+                    Improve your skills with practical courses.
+                </p>
+
+                <div class="progress">
+                    <span></span>
+                </div>
+
+                <small>75% course completion</small>
+
+            </div>
+
+            <div class="floating-card card-two">
+                <i class="fa-solid fa-star"></i>
+                <div>
+                    <strong>4.9/5 Rating</strong>
+                    <small>From our students</small>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stat">
+            <i class="fa-solid fa-users"></i>
+            <h2>10K+</h2>
+            <p>Students</p>
+        </div>
+
+        <div class="stat">
+            <i class="fa-solid fa-book"></i>
+            <h2>250+</h2>
+            <p>Courses</p>
+        </div>
+
+        <div class="stat">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <h2>50+</h2>
+            <p>Expert Instructors</p>
+        </div>
+
+        <div class="stat">
+            <i class="fa-solid fa-certificate"></i>
+            <h2>5K+</h2>
+            <p>Certificates</p>
+        </div>
+
+        <div class="stat">
+    <strong>24/7</strong>
+    <span>Flexible Learning</span>
+</div>
+
+<div class="stat">
+    <strong>100%</strong>
+    <span>Student Focused</span>
+</div>
+
+<div class="stat">
+    <strong>Easy</strong>
+    <span>Learning Experience</span>
+</div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section" id="categories">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">CATEGORIES</span>
+
+                <h2>
+                    Explore Popular
+                    <span>Categories</span>
+                </h2>
+            </div>
+
+            <a href="#" class="view-all">
+                View All <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category-card">
+                <div class="category-icon blue">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <h3>Development</h3>
+                <p>75 Courses</p>
+            </div>
+
+
+            <div class="category-card">
+                <div class="category-icon purple">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+
+                <h3>Design</h3>
+                <p>45 Courses</p>
+            </div>
+
+
+            <div class="category-card">
+                <div class="category-icon orange">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h3>Business</h3>
+                <p>35 Courses</p>
+            </div>
+
+
+            <div class="category-card">
+                <div class="category-icon green">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+
+                <h3>Marketing</h3>
+                <p>30 Courses</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COURSES ================= -->
+
+    <section class="section courses-section" id="courses">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">OUR COURSES</span>
+
+                <h2>
+                    Learn From The
+                    <span>Best Courses</span>
+                </h2>
+            </div>
+
+            <a href="#" class="view-all">
+                View All Courses
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="course-grid">
+
+            <!-- Course 1 -->
+
+            <div class="course-card">
+
+                <div class="course-image javascript">
+                    <i class="fa-brands fa-js"></i>
+
+                    <span class="course-level">
+                        Beginner
+                    </span>
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        DEVELOPMENT
+                    </span>
+
+                    <h3>
+                        JavaScript From Zero to Hero
+                    </h3>
+
+                    <p>
+                        Learn modern JavaScript and build
+                        real-world applications.
+                    </p>
+
+                    <div class="course-info">
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            24 Hours
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            2.4K
+                        </span>
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>₹999</strong>
+
+                     <button onclick="window.location.href='login.html'">
+    Enroll
+</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Course 2 -->
+
+            <div class="course-card">
+
+                <div class="course-image web">
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <span class="course-level">
+                        Intermediate
+                    </span>
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        DEVELOPMENT
+                    </span>
+
+                    <h3>
+                        Full Stack Web Development
+                    </h3>
+
+                    <p>
+                        Build complete web applications
+                        using modern technologies.
+                    </p>
+
+                    <div class="course-info">
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            40 Hours
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            3.1K
+                        </span>
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>₹1499</strong>
+           <button onclick="window.location.href='login.html'">
+    Enroll
+</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Course 3 -->
+
+            <div class="course-card">
+
+                <div class="course-image design">
+                    <i class="fa-solid fa-pen-nib"></i>
+
+                    <span class="course-level">
+                        Beginner
+                    </span>
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        DESIGN
+                    </span>
+
+                    <h3>
+                        UI/UX Design Masterclass
+                    </h3>
+
+                    <p>
+                        Learn how to create beautiful and
+                        user-friendly interfaces.
+                    </p>
+
+                    <div class="course-info">
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            18 Hours
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            1.8K
+                        </span>
+                    </div>
+
+                    <div class="course-bottom">
+
+                        <strong>₹799</strong>
+           <button onclick="window.location.href='login.html'">
+    Enroll
+</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="features">
+
+    <div class="feature">
+        <div class="icon">📚</div>
+        <h3>Quality Courses</h3>
+        <p>
+            Learnify provides well-organized courses and study materials
+            designed to make complex topics easier to understand.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="icon">🎯</div>
+        <h3>Learn at Your Pace</h3>
+        <p>
+            Students can learn according to their own schedule and revisit
+            learning materials whenever they need.
+        </p>
+    </div>
+
+    <div class="feature">
+        <div class="icon">🚀</div>
+        <h3>Build Your Future</h3>
+        <p>
+            Develop knowledge and practical skills that can help you grow
+            academically and prepare for future opportunities.
+        </p>
+    </div>
+
+</div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div>
+
+            <span>START YOUR JOURNEY</span>
+
+            <h2>
+                Ready to Start
+                <br>
+                Learning?
+            </h2>
+
+            <p>
+                Join thousands of students and start
+                learning new skills today.
+            </p>
+
+            <button onclick="openRegister()">
+                Create Free Account
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+        <div class="cta-icon">
+            🎓
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="footer-main">
+
+            <div class="footer-about">
+
+                <div class="logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Learnify</span>
+                </div>
+
+                <p>
+                    Making quality education accessible
+                    to everyone, everywhere.
+                </p>
+
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Platform</h3>
+
+                <a href="#">Courses</a>
+                <a href="#">Instructors</a>
+                <a href="#">Pricing</a>
+                <a href="#">Certificates</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Company</h3>
+
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+
+                <section class="contact-section" id="contact">
+
+    <div class="contact-grid">
+
+        <!-- Contact Details -->
+        <div class="contact-info">
+
+            <h2>Get in Touch</h2>
+
+            <div class="contact-item">
+                <strong>Name : </strong>
+                <span>Anish Shaikh</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>Email : </strong>
+                <span>ethanwinter1472@gmail.com</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>📞 Phone</strong>
+                <span>+91 93210 25743</span>
+            </div>
+
+            <div class="contact-item">
+                <strong>📍 Address</strong>
+                <span>Navi Mumbai, Maharashtra</span>
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+
+            <label for="name">Name</label>
+            <input 
+                type="text" 
+                id="name" 
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                id="email" 
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="message">Message</label>
+            <textarea 
+                id="message" 
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Message →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Support</h3>
+
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="#">FAQ</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Learnify. All rights reserved.
+            </p>
+
+            <p>
+                Made with ❤️ for learners
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= LOGIN MODAL ================= -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeModal('loginModal')">
+                ×
+            </button>
+
+            <h2>Welcome Back 👋</h2>
+
+            <p>Login to continue learning.</p>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email Address"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button class="modal-btn" onclick="login()">
+                Login
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= REGISTER MODAL ================= -->
+
+    <div class="modal" id="registerModal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeModal('registerModal')">
+                ×
+            </button>
+
+            <h2>Create Account 🚀</h2>
+
+            <p>Start your learning journey today.</p>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Full Name"
+            >
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email Address"
+            >
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password"
+            >
+
+            <button class="modal-btn" onclick="register()">
+                Create Account
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
